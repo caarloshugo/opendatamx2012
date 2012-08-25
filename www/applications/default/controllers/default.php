@@ -34,7 +34,11 @@ class Default_Controller extends ZP_Controller {
 
 	public function api() {
 		if(segment(1)) {
-			$data["results"] = $this->Default_Model->getYearApi(segment(1));
+			if(segment(1) == "all") {
+				$data["results"] = $this->Default_Model->getCountry();
+			} else {
+				$data["results"] = $this->Default_Model->getYearApi(segment(1));
+			}
 			echo json_encode($data);
 		} else {
 			$this->apiDesc();
