@@ -1,4 +1,73 @@
-$(document).on("ready", function(){
+$(document).on("ready", function() {
+	var text  = new Array;
+	var text2 = new Array;
+	
+	$.ajax({
+		type: "POST",
+		url: PATH + "/get/" ,
+		data: "",
+		dataType: "json",
+		beforeSend: function(jqXHR, settings){
+			$(".loadgif").show();
+		},
+		
+		success: function(response, textStatus, jqXHR) {
+		
+			var data = response["response"];
+			$("#timeline").fadeIn();
+			
+			text[0] = Array('Year', 'Robo de Vehículos', 'Robo de Transeuntes', 'Robo de Vehículos s/v', 'Robo de Transeuntes s/v', 'Lesiones con arma blanca', 'Homicidios Dolosos', 'Extorsión', 'Secuestro');
+			text2[0] = Array('Year', 'Robo de Vehículos', 'Robo de Transeuntes', 'Robo de Vehículos s/v', 'Robo de Transeuntes s/v', 'Lesiones con arma blanca', 'Homicidios Dolosos', 'Extorsión', 'Secuestro');
+			var i=0;
+			
+			for(var j in data) {
+				i=i+1;
+				$("#" + j).html(getTable());
+				$("#" +  j + " .denuncias tbody tr .d100_rvv").html(parseFloat(data[j].d100_rvv).toFixed(2));
+				$("#" +  j + " .denuncias tbody tr .d100_rvt").html(parseFloat(data[j].d100_rvt).toFixed(2));
+				$("#" +  j + " .denuncias tbody tr .d100_rsvv").html(parseFloat(data[j].d100_rsvv).toFixed(2));
+				$("#" +  j + " .denuncias tbody tr .d100_rsvt").html(parseFloat(data[j].d100_rsvt).toFixed(2));
+				$("#" +  j + " .denuncias tbody tr .d100_lda").html(parseFloat(data[j].d100_lda).toFixed(2));
+				$("#" +  j + " .denuncias tbody tr .d100_hd").html(parseFloat(data[j].d100_hd).toFixed(2));
+				$("#" +  j + " .denuncias tbody tr .d100_ext").html(parseFloat(data[j].d100_ext).toFixed(2));
+				$("#" +  j + " .denuncias tbody tr .d100_sec").html(parseFloat(data[j].d100_sec).toFixed(2));
+				
+				$("#" + j).append(getTable2());
+				$("#" +  j + " .incidencias tbody tr .d100_rvv").html(parseFloat(data[j].i_rvv).toFixed(2));
+				$("#" +  j + " .incidencias tbody tr .d100_rvt").html(parseFloat(data[j].i_rvt).toFixed(2));
+				$("#" +  j + " .incidencias tbody tr .d100_rsvv").html(parseFloat(data[j].i_rsvv).toFixed(2));
+				$("#" +  j + " .incidencias tbody tr .d100_rsvt").html(parseFloat(data[j].i_rsvt).toFixed(2));
+				$("#" +  j + " .incidencias tbody tr .d100_lda").html(parseFloat(data[j].i_lda).toFixed(2));
+				$("#" +  j + " .incidencias tbody tr .d100_hd").html(parseFloat(data[j].i_hd).toFixed(2));
+				$("#" +  j + " .incidencias tbody tr .d100_ext").html(parseFloat(data[j].i_ext).toFixed(2));
+				$("#" +  j + " .incidencias tbody tr .d100_sec").html(parseFloat(data[j].i_sec).toFixed(2));
+				
+				$("#" + j).append(getTable3());
+				$("#" +  j + " .totales tbody tr .poblacion").html(parseFloat(data[j].incidencia).toFixed(2));
+				$("#" +  j + " .totales tbody tr .c_negra").html(parseFloat(data[j].c_negra).toFixed(2));
+				$("#" +  j + " .totales tbody tr .total_sent").html(parseFloat(data[j].total_sent).toFixed(2));
+				$("#" +  j + " .totales tbody tr .impunidad").html(parseFloat(data[j].impunidad).toFixed(2));
+				$("#" +  j + " .totales tbody tr .eficiencia").html(parseFloat(data[j].eficiencia).toFixed(2));
+				$("#" +  j + " .totales tbody tr .incidencia").html(parseFloat(data[j].incidencia).toFixed(2));
+				
+				
+				text[i]  = Array(j, parseInt(data[j].d100_rvv), parseInt(data[j].d100_rvt), parseInt(data[j].d100_rsvv), parseInt(data[j].d100_rsvt), parseInt(data[j].d100_lda), parseInt(data[j].d100_hd), parseInt(data[j].d100_ext), parseInt(data[j].d100_sec));
+				text2[i] = Array(j, parseInt(data[j].i_rvv), parseInt(data[j].i_rvt), parseInt(data[j].i_rsvv), parseInt(data[j].i_rsvt), parseInt(data[j].i_lda), parseInt(data[j].i_hd), parseInt(data[j].i_ext), parseInt(data[j].i_sec));
+			}
+			
+		},
+
+		error: function(jqXHR, textStatus){
+
+		},
+
+		complete: function(jqXHR, textStatus){
+			$.scrollTo('#auto', 800);
+			drawChart(text);
+			drawChart2(text2);
+		}
+	});
+	
    var estados_abr = [ "AGS","BC","BCS","CAM","CHIS","CHIH","COA","COL",
 			  "DF","DGO","MEX","GTO","GRO","HGO","JAL","MICH",
 			  "MOR","NAY","NL","OAX","PUE","QUE","QROO","SLP",

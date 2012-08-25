@@ -23,7 +23,12 @@ class Default_Controller extends ZP_Controller {
 	}
 
 	public function getData() {
-		$vars["response"] = $this->Default_Model->getData(segment(1));
+		if(!segment(1)) {
+			$vars["response"] = $this->Default_Model->getCountry();
+		} else {
+			$vars["response"] = $this->Default_Model->getData(segment(1));
+		}
+		
 		echo json_encode($vars);
 	}
 
