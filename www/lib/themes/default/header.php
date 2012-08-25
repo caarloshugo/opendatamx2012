@@ -9,19 +9,28 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 		<script src="<?php print $this->themePath; ?>/js/bigtext.js"></script>
-		<script src="<?php print $this->themePath; ?>/js/functions.js"></script>
+		
 		<script src="<?php print $this->themePath; ?>/js/jquery.scrollTo.js"></script>
-		<script src="<?php print $this->themePath; ?>/js/jquery.timelinr-0.9.51.js"></script>
+		
+		<?php if(!segment(0)) { ?>
+			<script src="<?php print $this->themePath; ?>/js/functions.js"></script>
+			<script src="<?php print $this->themePath; ?>/js/jquery.timelinr-0.9.51.js"></script>
+			
+			<script>
+				$(function(){
+					$().timelinr({
+						arrowKeys: 'true'
+					})
+				});
+			</script>
+		<?php } else { ?>
+			<script src="<?php print $this->themePath; ?>/js/sonora.js"></script>
+		<?php } ?>
 		
 		<script>
-			$(function(){
-				$().timelinr({
-					arrowKeys: 'true'
-				})
-			});
-			
 			var PATH = "<?php print get('webURL'); ?>";
 		</script>
+		
 		<link href="<?php print $this->themePath; ?>/css/style.css" rel="stylesheet">
 		<?php print $this->getCSS(); ?>
 		
@@ -44,7 +53,7 @@
 			  <a class="brand" href="<?php print get('webURL'); ?>">Denuncialos!</a>
 			  <div class="nav-collapse collapse">
 				<ul class="nav">
-					<li><a href="<?php print get('webURL'); ?>/diputados">Diputados</a></li>
+					<li><a href="<?php print get('webURL'); ?>/alcaldes">Alcaldes</a></li>
 					<?php if(!segment(0)) { ?>
 						<span class="title-city">Nacional</span>
 					<?php } ?>
@@ -61,7 +70,7 @@
 						<?php if(!segment(0)) { ?>
 							Da clic en un estado para ver la informaci&oacute;n
 						<?php } else { ?>
-							Listado de sueldos de diputados de sinaloa
+							Da clic en un municipio para ver la informaci&oacute;n del alcalde
 						<?php } ?>
 					</small></h1>
 				</div>

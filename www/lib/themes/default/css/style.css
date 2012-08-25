@@ -237,3 +237,9 @@ div#info table#foot tr td{
 h4 { color:#0097E4 !important; }
 
 .title-city { float:left; margin-top:9px; color:#00B1B0 !important; font-weight:bold; font-size:37px; }
+
+#map_sinaloa { width:100px; height:100px !important; }
+
+.Sonora:hover { cursor:pointer; }
+#sinaloa { margin-top:-100px; }
+.table-sinaloa { margin-top:-250px; }
