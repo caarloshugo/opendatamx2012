@@ -62,7 +62,6 @@ $(document).on("ready", function() {
 		},
 
 		complete: function(jqXHR, textStatus){
-			$.scrollTo('#auto', 800);
 			drawChart(text);
 			drawChart2(text2);
 		}

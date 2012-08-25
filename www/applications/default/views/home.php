@@ -335,9 +335,8 @@
 					</g>
 				  </g>
 				</svg>
-</div>
-
 <a name="auto" id="auto"></a>
+</div>
 
 <div id="timeline">
 	<ul id="dates"><li><a href="#2000">2000</a></li><li><a href="#2001">2001</a></li><li><a href="#2002">2002</a></li><li><a href="#2003">2003</a></li><li><a href="#2004">2004</a></li><li><a href="#2005">2005</a></li><li><a href="#2006">2006</a></li><li><a href="#2007">2007</a></li><li><a href="#2008">2008</a></li><li><a href="#2009">2009</a></li><li><a href="#2010">2010</a></li><li><a href="#2011">2011</a></li></ul>
