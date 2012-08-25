@@ -41,10 +41,13 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </button>
-			  <a class="brand" href="">Denuncialos!</a>
+			  <a class="brand" href="<?php print get('webURL'); ?>">Denuncialos!</a>
 			  <div class="nav-collapse collapse">
 				<ul class="nav">
-					<span class="title-city">Nacional</span>
+					<li><a href="<?php print get('webURL'); ?>/diputados">Diputados</a></li>
+					<?php if(!segment(0)) { ?>
+						<span class="title-city">Nacional</span>
+					<?php } ?>
 				</ul>
 			  </div>
 			</div>
@@ -54,7 +57,13 @@
 		<div class="container">
 			<div class="content">
 				<div class="page-header">
-					<h1>Denuncialos! <small>Da clic en un estado para ver la informaci&oacute;n</small></h1>
+					<h1>Denuncialos! <small>
+						<?php if(!segment(0)) { ?>
+							Da clic en un estado para ver la informaci&oacute;n
+						<?php } else { ?>
+							Listado de sueldos de diputados de sinaloa
+						<?php } ?>
+					</small></h1>
 				</div>
 				
 				<div class="row">

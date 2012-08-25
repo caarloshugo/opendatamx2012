@@ -46,4 +46,11 @@ class Default_Controller extends ZP_Controller {
 		
 		$this->render("content", $vars);
 	}
+	
+	public function diputados() {
+		$vars["results"] = $this->Default_Model->getDiputados();
+		$vars["view"]    = $this->view("diputados", TRUE);
+		
+		$this->render("content", $vars);
+	}
 }

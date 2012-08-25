@@ -49,4 +49,10 @@ class Default_Model extends ZP_Model {
 		return $data;	
 	}
 	
+	public function getDiputados() {
+		$query = "select * from diputados";
+		$data  = $this->Db->query($query);
+		
+		return $data;
+	}
 }
