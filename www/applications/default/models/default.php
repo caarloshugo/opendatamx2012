@@ -55,4 +55,11 @@ class Default_Model extends ZP_Model {
 		
 		return $data;
 	}
+	
+	public function getAlcaldes($field, $order = "desc") {
+		$query = "select * from diputados order by (" . $field . "+0) " . $order;
+		$data  = $this->Db->query($query);
+		
+		return $data;
+	}
 }

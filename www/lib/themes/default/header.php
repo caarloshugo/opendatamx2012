@@ -71,6 +71,8 @@
 							Da clic en un estado para ver la informaci&oacute;n
 						<?php } else { ?>
 							Da clic en un municipio para ver la informaci&oacute;n del alcalde
+							<a href="<?php print get('webURL'); ?>/mejor-pagado">El que m&aacute;s gana!</a>
+	                        <a href="<?php print get('webURL'); ?>/miente">El que m&aacute;s miente!</a>
 						<?php } ?>
 					</small></h1>
 				</div>

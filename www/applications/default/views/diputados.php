@@ -160,6 +160,7 @@
   </g>
 </svg>
 
+
 <table class="table-sinaloa table table-striped">
  <a name="auto" id="auto"></a>
   <thead>
@@ -189,6 +190,8 @@
 	<?php } ?>
   </tbody>
 </table>
+
+<span id="ver-todo">Ver todo</span>
 </div>  
 
 

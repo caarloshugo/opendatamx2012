@@ -57,4 +57,18 @@ class Default_Controller extends ZP_Controller {
 		
 		$this->render("content", $vars);
 	}
+	
+	public function pagado() {
+		$vars["results"] = $this->Default_Model->getAlcaldes("sueldo_nom");
+		$vars["view"] = $this->view("pagado", TRUE);
+		
+		$this->render("content", $vars);
+	}
+	
+	public function miente() {
+		$vars["results"] = $this->Default_Model->getAlcaldes("diferencia_porc");
+		$vars["view"] = $this->view("miente", TRUE);
+		
+		$this->render("content", $vars);
+	}
 }

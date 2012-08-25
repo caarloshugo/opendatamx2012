@@ -11,4 +11,8 @@ $(document).on("ready", function() {
 		console.log(id);
 		$.scrollTo('#auto', 800);
 	});
+	
+	$("#ver-todo").click( function () {
+		$(".table-sinaloa tbody tr").fadeIn();
+	});
 });
